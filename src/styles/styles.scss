@@ -1,0 +1,11 @@
+@import 'plugins/main';
+@import 'base/fonts/main';
+@import 'base/colors/main';
+body,
+html {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    background-color: $background-secondary-color;
+}

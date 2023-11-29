@@ -1,0 +1,108 @@
+@import '../../../../styles/base/colors/main.scss';
+
+#address-register {
+    text-decoration: none;
+    color: $color-blue-primary;
+}
+
+#address-register:hover {
+    transition: all 0.8s;
+    font-weight: 800;
+}
+
+#btn-submit {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 12px;
+}
+
+.form-select {
+    font-size: 15px;
+    background-color: $background-tertiary-color;
+    border: 0px;
+    font-weight: 600;
+}
+
+#sex-floating-select {}
+
+.form-control {
+    font-size: 15px;
+    background-color: $background-tertiary-color;
+    border: 0px;
+    font-weight: 600;
+}
+
+.form-control:focus {
+    border: 2px solid $color-blue-primary;
+
+}
+
+#text-register {
+    font-size: 13px;
+    color: $color-gray-primary;
+    font-weight: 600;
+}
+
+.row {
+    background-image: linear-gradient(75deg, rgba(39, 42, 55, 1)60%, rgba(0, 0, 0, 0.50)), url('../../../../styles/images/pexels-photo-2118045.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.form-label::after {
+    background-color: transparent !important;
+
+
+}
+
+.form-label {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+#login-title {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+#span-login {
+    color: $color-blue-primary;
+}
+
+#btn-submit {
+    background-color: $color-blue-primary;
+}
+
+#btn-submit:hover {
+    transition: all 0.8s;
+    background-color: $color-blue-secondary;
+}
+
+#row-register {
+    height: 90%;
+}
+
+#icon-back {
+    color: $color-gray-quaternary;
+}
+
+#icon-back:hover {
+    cursor: pointer;
+    transition: all 0.3s;
+    color: $color-white-primary;
+
+}
+
+#togglePassword {
+    position: relative;
+    left: 120px;
+    bottom: 38px;
+}
+
+#toggleConfirmPassword {
+    position: relative;
+    left: 120px;
+    bottom: 38px;
+}

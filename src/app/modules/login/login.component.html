@@ -1,0 +1,58 @@
+<div class="container text-center vh-100 pt-5">
+    <div class="row align-items-center h-75  rounded-4">
+        <div class="col-6 mb-5 mb-lg-0">
+            <form [formGroup]="userForm" class="mx-auto" style="width: 23rem;" (ngSubmit)="onSubmit()">
+                <div class="pb-5 text-start" id="login-title">
+                    Entrar com uma <span id="span-login">conta</span>
+                </div>
+
+                <div class="form-floating mb-4">
+
+                    <input type="email" id="floating-input-email" class="form-control rounded-4" placeholder="Email"
+                        formControlName="email" />
+                    <label class="form-label" class="form-label" id="label-email"
+                        for="floating-input-email">Email</label>
+                    <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                        *ngIf="submitted && f['email'].errors">
+                        <div *ngIf=" submitted && f['email'].errors['required']"> O email é obrigatório
+                        </div>
+
+                    </div>
+                    <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                        *ngIf="submitted && f['email'].errors && f['email'].touched">
+                        <div *ngIf=" submitted && f['email'].errors['email'] && f['email'].touched"> Por favor escreva
+                            em formato de email
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-floating mb-4">
+
+                    <input type="{{this.typeInputPassword}}" id="floating-input-password" class="form-control rounded-4"
+                        placeholder="Senha" formControlName="password" />
+                                       
+                    <label id="label-password" class="form-label" for="floating-input-password">Senha</label>
+                    <i id="togglePassword" [ngClass]="{'bi bi-eye-slash': showPassword, 'bi bi-eye': !showPassword }" (click)="toggleShowPassword()"></i>
+                    <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                        *ngIf="submitted && f['password'].errors">
+                        <div *ngIf=" submitted && f['password'].errors['required']">A senha é obrigatória
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pt-1 text-center">
+                    <button class="btn w-50 btn-lg fw-bold text-light rounded-4" id="btn-submit"
+                        type="submit">LOGIN</button>
+                </div>
+
+
+                <p class="mt-5" id="text-register">Não tem uma conta ainda? <a id="address-register"
+                        (click)="goToRegister()">Se
+                        cadastre</a></p>
+            </form>
+        </div>
+
+    </div>
+</div>

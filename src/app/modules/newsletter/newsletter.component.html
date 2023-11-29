@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4" *ngFor="let item of news">
+
+        <div class="card mb-3 w-100 p-5 rounded-4" (click)="goToPost(item.id)">
+            <div class="row g-0">
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title fs-4 fw-bold">{{item.title}}</h5>
+                        <p class="card-text text-start p-5">{{item.subtitle}}</p>
+                        <p class="card-text text-capitalize" ><small class="text-body-secondary">Postado em {{item.createdAt | date: 'dd MMM, yyyy'}}</small></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src={{item.image}} class="img-fluid rounded-4" width="800" height="400" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

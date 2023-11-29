@@ -1,0 +1,216 @@
+<div class="container text-center vh-100 pt-5">
+    <div class="row align-items-center rounded-4" id="row-register">
+        <div class="col-6 mb-5 ms-5 mb-lg-0">
+            <form [formGroup]="userForm" class="mx-auto" (ngSubmit)="onSubmit()">
+                <div class="d-flex flex-row ">
+                    <div class="pe-3 align-self-center">
+                        <i class="bi bi-chevron-left " id="icon-back" style="font-size: 30px;" (click)="goToBack()"></i>
+                    </div>
+                    <div class="pb-2 text-start" id="login-title">
+                        Edite sua <span id="span-login">conta</span>
+                    </div>
+                </div>
+
+                <div class="input-group  mb-2">
+                    <div class="form-floating mb-2 me-3">
+
+                        <input type="text" id="floating-input-firstname" class="form-control rounded-4"
+                            placeholder="Nome" formControlName="firstname" />
+                        <label id="label-firstname" class="form-label" for="floating-input-firstname">Nome</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['firstname'].errors  && f['firstname'].touched">
+                            <div *ngIf=" submitted && f['firstname'].errors['required']  && f['firstname'].touched">O
+                                nome é obrigatório
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+
+                        <input type="text" id="floating-input-lastname" class="form-control rounded-4"
+                            placeholder="Sobrenome" formControlName="lastname" />
+                        <label id="label-lastname" class="form-label" for="floating-input-lastname">Sobrenome</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['lastname'].errors && f['lastname'].touched">
+                            <div *ngIf=" submitted && f['lastname'].errors['required'] && f['lastname'].touched">O
+                                sobrenome é obrigatório
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="input-group  mb-2">
+                    <div class="form-floating mb-2 me-3">
+
+                        <input type="text" id="floating-input-cpf" class="form-control rounded-4" placeholder="CPF"
+                            formControlName="cpf" mask="000.000.000-00" />
+                        <label id="label-cpf" class="form-label" for="floating-input-cpf">CPF</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['cpf'].errors && f['cpf'].touched">
+                            <div *ngIf=" submitted && f['cpf'].errors['required'] && f['cpf'].touched">O CPF é
+                                obrigatório
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2  me-3">
+
+                        <select class="form-select rounded-4" id="sex-floating-select" aria-label="Sexo"
+                            formControlName="sex">
+                            <option selected value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Carrosexual">Carrosexual</option>
+                        </select>
+                        <label for="sex-floating-select" class="form-label">Sexo</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['sex'].errors  && f['sex'].touched">
+                            <div *ngIf=" submitted && f['sex'].errors['required']  && f['sex'].touched">O sexo é
+                                obrigatório
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+
+                        <input type="number" id="floating-input-age" class="form-control rounded-4" placeholder="Idade"
+                            formControlName="age" />
+                        <label id="label-age" class="form-label" for="floating-input-age">Idade</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['age'].errors  && f['age'].touched">
+                            <div *ngIf=" submitted && f['age'].errors['required'] && f['age'].touched">A idade é
+                                obrigatório
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group  mb-2">
+                    <div class="form-floating mb-2 me-3">
+
+                        <input type="text" id="floating-input-cep" class="form-control rounded-4" placeholder="Cep"
+                            formControlName="cep" mask="00000-000" (blur)="searchCep()" />
+                        <label id="label-cep" class="form-label" for="floating-input-cep">CEP</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['cep'].errors  && f['cep'].touched">
+                            <div *ngIf=" submitted && f['cep'].errors['required']  && f['cep'].touched">O cep é
+                                obrigatório
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-2 me-3">
+                        <input type="text" id="floating-input-uf" class="form-control rounded-4" placeholder="UF"
+                            formControlName="uf" readonly />
+                        <label id="label-uf" class="form-label" for="floating-input-uf">UF</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" id="floating-input-localidade" class="form-control rounded-4"
+                            placeholder="Localidade" formControlName="localidade" readonly />
+                        <label id="label-localidade" class="form-label"
+                            for="floating-input-localidade">Localidade</label>
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="form-floating mb-2 me-3">
+
+                        <input type="text" id="floating-input-bairro" class="form-control rounded-4"
+                            placeholder="Bairro" formControlName="bairro" readonly />
+                        <label id="label-bairro" class="form-label" for="floating-input-bairro">Bairro</label>
+
+                    </div>
+
+                    <div class="form-floating mb-2">
+                        <input type="text" id="floating-input-logradouro" class="form-control rounded-4"
+                            placeholder="logradouro" formControlName="logradouro" readonly />
+                        <label id="label-logradouro" class="form-label"
+                            for="floating-input-logradouro">Logradouro</label>
+                    </div>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="form-floating mb-2">
+
+                        <input type="email" id="floating-input-email" class="form-control rounded-4" placeholder="Email"
+                            formControlName="email" />
+                        <label class="form-label" class="form-label" id="label-email"
+                            for="floating-input-email">Email</label>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['email'].errors  && f['email'].touched">
+                            <div *ngIf=" submitted && f['email'].errors['required']  && f['email'].touched"> O email é
+                                obrigatório
+                            </div>
+
+                        </div>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['email'].errors && f['email'].touched">
+                            <div *ngIf=" submitted && f['email'].errors['email'] && f['email'].touched"> Por favor
+                                escreva
+                                em formato de email
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group  mb-2">
+                    <div class="form-floating mb-2 me-3">
+                        <input type="{{this.typeInputPassword}}" id="floating-input-password"
+                            class="form-control rounded-4" placeholder="Senha" formControlName="password" />
+
+                        <label id="label-password" class="form-label" for="floating-input-password">Senha</label>
+                        <i id="togglePassword"
+                            [ngClass]="{'bi bi-eye-slash': showPassword, 'bi bi-eye': !showPassword }"
+                            (click)="toggleShowPassword()"></i>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['password'].errors  && f['password'].touched">
+                            <div *ngIf=" submitted && f['password'].errors['required']  && f['password'].touched">A
+                                senha é obrigatória
+                            </div>
+                        </div>
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['password'].errors  && f['password'].touched">
+                            <div *ngIf=" submitted && f['password'].errors['mustMatch']  && f['password'].touched">As
+                                senhas não são iguais
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-2">
+
+                        <input type="{{this.typeInputConfirmPassword}}" id="floating-input-confirm-password"
+                            class="form-control rounded-4" placeholder="Confirme a Senha"
+                            formControlName="passwordConfirm">
+                        <label id="label-confirm-password" class="form-label"
+                            for="floating-input-confirm-password">Confirme
+                            a senha</label>
+                        <i id="toggleConfirmPassword"
+                            [ngClass]="{'bi bi-eye-slash': showConfirmPassword, 'bi bi-eye': !showConfirmPassword }"
+                            (click)="toggleShowConfirmPassword()"></i>
+
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['passwordConfirm'].errors  && f['passwordConfirm'].touched">
+                            <div
+                                *ngIf=" submitted && f['passwordConfirm'].errors['required']  && f['passwordConfirm'].touched">
+                                A senha é obrigatória
+                            </div>
+                        </div>
+
+                        <div class="text-danger text-start pt-2 fw-semibold" style="font-size: 13px;"
+                            *ngIf="submitted && f['passwordConfirm'].errors  && f['passwordConfirm'].touched">
+                            <div
+                                *ngIf=" submitted && f['passwordConfirm'].errors['mustMatch']  && f['passwordConfirm'].touched">
+                                As senhas não são iguais
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="pt-1 text-center">
+                    <button class="btn w-50 btn-lg fw-bold text-light rounded-4" id="btn-submit"
+                        type="submit">ATUALIZAR</button>
+                </div>
+
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
