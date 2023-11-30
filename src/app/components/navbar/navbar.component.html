@@ -19,7 +19,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/newsletter/about-me">Sobre nós</a>
       </li>
-
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/newsletter/video-lessons">Video Aulas</a>
+      </li>
     </ul>
   </div>
   <div class="d-flex ">
@@ -31,7 +33,7 @@
         <img src="{{defaultImg}}" width="40" height="40" class="rounded-circle mx-1">
       </button>
       <ul class="dropdown-menu" id="dropdown-profile">
-         <li><a class="dropdown-item " routerLink="user/edit">Editar Conta</a></li>
+        <li><a class="dropdown-item " routerLink="user/edit">Editar Conta</a></li>
         <li><a class="dropdown-item" (click)="onLogout()">Sair</a></li>
       </ul>
     </div>

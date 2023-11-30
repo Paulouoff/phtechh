@@ -27,7 +27,10 @@
                 <div [ngClass]="{'col pt-4 clearfix': item.text.length >= 500, 'col d-inline-flex flex-row-reverse': item.text.length < 499 && item.image != null}">
                     <img src={{item.image}}
                         class="rounded-4 float-md-end" [ngClass]="{'col-md-4 mb-3 ms-md-3': item.text.length > 500, 'col-4': item.text.length < 499, '': item.image.length == 0 }"
-                        width="400" height="200" alt="" *ngIf="item.image">
+                        width="400" height="200" alt="" *ngIf="item.image && !item.video">
+                        <div class="" *ngIf="item.video != '' && item.image == ''">
+                            video aqui
+                        </div>
                     <div [ngClass]="{'': item.text.length >= 500, 'col-8 pe-5': item.text.length < 499 , 'col-12': item.image.length == 0 }">
                         {{item.text}}
                     </div>

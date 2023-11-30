@@ -6,6 +6,8 @@ import { PostComponent } from './post/post.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { HighlightsComponent } from './highlights/highlights.component';
 import { CategoryComponent } from './category/category.component';
+import { VideoLessonsComponent } from './video-lessons/video-lessons.component';
+import { VideoLessonComponent } from './video-lesson/video-lesson.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'post/:id', component: PostComponent, canActivate: [authGuard] },
   { path: 'about-me', component: AboutMeComponent, canActivate: [authGuard] },
   { path: 'highlights', component: HighlightsComponent, canActivate: [authGuard] },
-  {path: 'categories/:category',component: CategoryComponent, canActivate: [authGuard]}
+  { path: 'categories/:category', component: CategoryComponent, canActivate: [authGuard] },
+  { path: 'video-lessons', component: VideoLessonsComponent, canActivate: [authGuard] },
+  { path: 'video-lesson/:id', component: VideoLessonComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

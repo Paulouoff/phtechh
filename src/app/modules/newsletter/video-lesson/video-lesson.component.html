@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="text-start">
+            <div class="fw-bold fs-1">
+                {{videoLesson.title}}
+            </div>
+            <div class="fw-semibold fs-5 mt-2">
+                {{videoLesson.subtitle}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div [ngClass]="{'col-12 text-center': videoLesson.videoSecondary == '', 'col-6': videoLesson.videoSecondary != '' }">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item rounded-3" width="600" height="400" [src]="videoLesson.urlSafePrincipal"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+
+            </div>
+        </div>
+        <div class="col-6" *ngIf="videoLesson.videoSecondary != ''">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item rounded-3" width="600" height="400" [src]="videoLesson.urlSafeSecondary"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center mt-5">
+         {{videoLesson.subtitle}}
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col-12">
+            <div class="h1 text-start fs-3 fw-bold mb-3">
+                Veja mais
+            </div>
+        </div>
+        <div class="col-3" *ngFor="let item of videoLessonsCard">
+            <div class="card" style="width: 18rem;" (click)="goToVideoLesson(item.id)">
+                <img src="{{item.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-title fw-bold">{{item.title}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
